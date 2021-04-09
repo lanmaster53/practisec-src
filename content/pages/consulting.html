@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <section class="InnerHeaderBg" style="background-image: url({{ url_for('static', filename='images/imgs/consulting-header.jpg') }}); min-height:461px;">
+        <div class="ResImg">
+            <img src="{{ url_for('static', filename='images/imgs/consulting-header.jpg') }}" alt="">
+        </div>
+        <div class="Wrapper">
+            <div class="MainWrapper">
+                <h2 class="Title fz90 bits-r">
+                    Consulting
+                </h2>
+            </div>
+        </div>
+    </section>
+
+    <section class="Section_Second one">
+        <div class="InnerContainWrapper">
+        </div>
+    </section>
+
+    <section class="Section_Second second consulting-page">
+        <div class="InnerContainWrapper">
+            <div class="ClearBoth group MarginWrapper">
+                <div class="ImgWrapper">
+                    <img src="{{ url_for('static', filename='images/imgs/consulting-about-img.jpg') }}">
+                </div>
+                <div class="DescWrapper">
+                    <h3 class="Title fz50 bits-r">
+                        Experience you can trust
+                    </h3>
+                    <!-- <hr class="sepline"> -->
+                    <div class="Desc FParagraph1">
+                        <p>With over a decade of experience in the Information Security field, employees of Practical
+                            Security Services have had the pleasure of serving in many roles including Senior Red Team
+                            Leader (Department of the Army), Senior Security Consultant, Managing Consultant, Vice
+                            President of Professional Services, and Director of Training. Each of these roles has afforded
+                            an opportunity to gain a different perspective of the industry and hone various skills.
+                            While experienced in a variety of fields, Practical Security Services also believes that
+                            specialization is important to providing a high quality product, and is committed to the field
+                            of Application Security. As a consultancy, Practical Security Services offers assistance in
+                            conducting application penetration tests, vulnerability assessments, code reviews, and
+                            vulnerability research. Please contact us for consulting inquiries.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

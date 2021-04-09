@@ -1,0 +1,38 @@
+    <header class="TopHeader">
+        <div class="TopMainWrapper">
+            <div class="group ClearBoth">
+                <h1 class="Logo"><a href="{{ url_for('home') }}">PractiSec</a></h1>
+                <!--Logo-->
+                <div class="TopMainRight">
+                    <div class="group ClearBoth">
+
+                        <a href="#menu" class="menu-link">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </a>
+                        <nav id="menu" class="menu">
+                            <ul>
+                                <li><a href="{{ url_for('home') }}">Home</a></li>
+                                <li><a href="{{ url_for('page', name='consulting') }}">Consulting</a></li>
+                                <li><a href="{{ url_for('page', name='training') }}">Training</a></li>
+                                <li><a href="{{ url_for('page', name='development') }}">Development</a></li>
+                                <li><a href="{{ url_for('page', name='events') }}">Events</a></li>
+                                <li><a href="mailto:tim.tomes@practicsec.com">Contact</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="ResponsiveLogo TAC">
+        <div class="TopMainWrapper">
+            <a href="./">
+                <div class="ResLogo">
+                    <img src="{{ url_for('static', filename='images/imgs/sticky-logo.png') }}" alt="">
+                </div>
+            </a>
+        </div>
+    </section>

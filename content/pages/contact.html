@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <section class="InnerHeaderBg" style="background-image: url({{ url_for('static', filename='images/imgs/consulting-header.jpg') }}); min-height:461px;">
+        <div class="ResImg">
+            <img src="{{ url_for('static', filename='images/imgs/consulting-header.jpg') }}" alt="">
+        </div>
+        <div class="Wrapper">
+            <div class="MainWrapper">
+                <h2 class="Title fz90 bits-r">
+                    Contact
+                </h2>
+            </div>
+        </div>
+    </section>
+
+    <section class="Section_Second one">
+        <div class="InnerContainWrapper">
+            <h2 class="Title">
+                Please send all inquiries to <a href="mailto:tim.tomes@practicsec.com">tim.tomes@practicsec.com</a>.<br>
+                We look forward to hearing from you.
+            </h2>
+        </div>
+    </section>
+
+{% endblock %}

@@ -1,0 +1,292 @@
+    <section class="testimonial-container">
+        <div class="InnerContainWrapper">
+            <div class="testimonial-section">
+                <div class="heading">
+                    <h4 class="Title fz50 poppins-b">
+                        Testimonials
+                    </h4>
+                </div>
+                <div class="flexslider testimonial-slider">
+                    <div class="flexslider" id="testimonial-slider">
+                        <ul class="NoBullet slides">
+                        {% for testimonial in site.testimonials %}
+                            <li>
+                                <div class="Col">
+                                    <div class="testimony FParagraph1 EditorText">
+                                        <p>{{ testimonial[0]|safe }}</p>
+                                    </div>
+                                    <h6 class="author fz22 poppins-sb">- {{ testimonial[1]|safe }}</h6>
+                                </div>
+                            </li>
+                        {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mailchimp-container">
+        <div class="InnerContainWrapper">
+            <div class="heading">
+                <h4 class="Title">
+                    <span>Stay In Touch and Be Notified <br></span> Service Announcements + Upcoming Seminars and Classes
+                </h4>
+            </div>
+            <div class="newsletter">
+                <div class="FillBlackBtn"><a href="javascript:void(0)" class="activator" rel="RequestAQuote">Subscribe
+                        Now</a></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="FooterWrap">
+        <div class="InnerContainWrapper">
+            <div class="copy">
+                COPYRIGHT &copy; {{ date.year }} PractiSec. <br> ALL RIGHTS RESERVED.
+
+            </div>
+            <div class="DevelopedBy">
+                Developed by <a href="http://swiftbusinesssolutions.com/" target="_blank"> Swift </a>
+            </div>
+
+            <div class="TopArrow">
+                <a href="#top" class="scroll">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-angle-up fa-stack-1x fa-inverse"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="StickyBtns CTAFloating">
+        <div class="FillRedBorder"></div>
+        <div class="MainWrapper">
+            <div class="group ClearBoth">
+                <div class="RightWrapper">
+                    <div class="group ClearBoth">
+                        <!-- <div class="FillRedBtn"><a href="javascript:void(0)" class="activator"
+                                    rel="RequestAQuote">newsletter</a></div> -->
+                        <div class="FSocialIcon">
+                            <ul class="SocialIcons">
+
+                                <li>
+                                    <a href="https://twitter.com/LaNMaSteR53" target="_blank" class="fa-stack fa-lg">
+                                        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.linkedin.com/in/lanmaster53/" target="_blank"
+                                        class="fa-stack fa-lg">
+                                        <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/common.js') }}" type="text/javascript"></script>
+
+    <!-- author:piyush -->
+    <script type="text/javascript" async>
+    jQuery(document).ready(function() {
+        // jQuery(".HomeTop").hide();
+        if ($(window).width() >= 1025) {
+            // do your stuff
+            var header = $(".TopHeader");
+            jQuery(window).scroll(function() {
+                var sd = jQuery(window).scrollTop();
+                var p = header.position();
+                if (sd > 114 || p > 114)
+                    header.addClass("Sticky");
+                else
+                    header.removeClass("Sticky");
+            });
+        }
+    });
+    </script>
+
+    <!-- Popup js -->
+
+    <script src="{{ url_for('static', filename='js/jquery.magnific-popup.js') }}" type="text/javascript"></script>
+
+    <script>
+    jQuery(document).ready(function() {
+
+        jQuery('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
+            disableOn: 700,
+            type: 'iframe',
+            mainClass: 'mfp-fade',
+            removalDelay: 160,
+            preloader: false,
+            fixedContentPos: false
+        }); //jQuery('.popup-youtube, .popup-vimeo, .popup-gmaps')
+
+        //      jQuery('.popup-gallery').magnificPopup({
+        //            delegate: 'a',
+        //            type: 'image',
+        //            tLoading: 'Loading image #%curr%...',
+        //            mainClass: 'mfp-img-mobile',
+        //            gallery: {
+        //              enabled: true,
+        //              navigateByImgClick: true,
+        //              preload: [0,1] // Will preload 0 - before current, and 1 after the current image
+        //            },
+        //            image: {
+        //              tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
+        //              titleSrc: function(item) {
+        //                return item.el.attr('title');
+        //              }
+        //            }
+        //          });//jQuery('.slide-popup-gallery')
+
+    });
+    </script>
+    <!--magnific popup-->
+
+    <script>
+    function scrollpage($ID) {
+        $Top = $('#' + $ID).offset().top;
+        jQuery('html, body').animate({
+            scrollTop: $Top - 100
+        }, 1000);
+    }
+
+    jQuery(document).ready(function() {
+        jQuery('.box').hide();
+
+        jQuery('.activator').click(function(e) {
+            e.preventDefault();
+            $ID = $(this).attr('rel');
+            $FType = $(this).attr('rel-id');
+
+            $Name = $(this).attr('rel-name');
+            $('#overlay').fadeIn('fast');
+            $('#' + $ID).fadeIn();
+            //alert($FType+'&&&&'+$Name);
+            jQuery('#FormTitle').html($FType);
+            jQuery('#FormSubTitle').html($Name);
+            jQuery('#ServiceVal').val($Name);
+
+            if ($FType == 'Franchise Opportunities') {
+                jQuery('#FormType').val('2');
+            } else if ($FType == 'Request Service') {
+                jQuery('#FormType').val('3');
+            } else {
+                jQuery('#FormType').val('1');
+            }
+            scrollpage($ID);
+            //$(this).toggle() ;
+        });
+
+        jQuery('.boxclose').click(function(e) {
+            e.preventDefault();
+            $ID = $(this).attr('rel');
+            jQuery('#' + $ID).fadeOut('fast', function() {
+                jQuery('#overlay').fadeOut('fast');
+            });
+            jQuery('#FormType').val('');
+            jQuery('#FormTitle').html('');
+            jQuery('#FormSubTitle').html('');
+            jQuery('#ServiceVal').val('');
+            $('#FormCont')[0].reset();
+            $('#HideFormCont').show();
+            $('#CntThanksMsg').hide();
+            grecaptcha.reset(clientId1);
+        });
+    });
+    </script>
+    <!--overlay script-->
+
+    <div class="overlay" id="overlay" style="display:none;"> </div>
+    <div class="box RequestAQuote" id="RequestAQuote" style="display:none;">
+        <a href="#" class="boxclose" rel="RequestAQuote">
+            <i class="fa fa-close"></i>
+        </a>
+        <div class="ContactFormWrap  OverlayWrapper">
+            <div class="FormWrapper" id="HideFormCont">
+                <!-- Begin Mailchimp Signup Form -->
+                <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
+                <style type="text/css">
+                #mc_embed_signup {
+                    background: #fff;
+                    clear: left;
+                    font: 14px Helvetica, Arial, sans-serif;
+                }
+
+                /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+    We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+                </style>
+                <div id="mc_embed_signup">
+                    <form
+                        action="https://lanmaster53.us4.list-manage.com/subscribe/post?u=faee1c770a1403f138e439699&id=c7507f046f"
+                        method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate"
+                        target="_blank" novalidate>
+                        <div id="mc_embed_signup_scroll">
+                            <h2>Subscribe Now</h2>
+                            <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+                            <div class="mc-field-group">
+                                <label for="mce-EMAIL">Email Address <span class="asterisk">*</span>
+                                </label>
+                                <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+                            </div>
+                            <div class="mc-field-group">
+                                <label for="mce-FNAME">First Name <span class="asterisk">*</span>
+                                </label>
+                                <input type="text" value="" name="FNAME" class="required" id="mce-FNAME">
+                            </div>
+                            <div class="mc-field-group">
+                                <label for="mce-LNAME">Last Name <span class="asterisk">*</span>
+                                </label>
+                                <input type="text" value="" name="LNAME" class="required" id="mce-LNAME">
+                            </div>
+                            <div class="mc-field-group">
+                                <label for="mce-MMERGE6">Source <span class="asterisk">*</span>
+                                </label>
+                                <input type="text" value="" name="MMERGE6" class="required" id="mce-MMERGE6">
+                            </div>
+                            <div id="mce-responses" class="clear">
+                                <div class="response" id="mce-error-response" style="display:none"></div>
+                                <div class="response" id="mce-success-response" style="display:none"></div>
+                            </div>
+                            <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
+                                    name="b_faee1c770a1403f138e439699_c7507f046f" tabindex="-1" value=""></div>
+                            <div class="clear"><input type="submit" value="Subscribe" name="subscribe"
+                                    id="mc-embedded-subscribe" class="button"></div>
+                        </div>
+                    </form>
+                </div>
+                <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'>
+                </script>
+                <script type='text/javascript'>
+                (function($) {
+                    window.fnames = new Array();
+                    window.ftypes = new Array();
+                    fnames[0] = 'EMAIL';
+                    ftypes[0] = 'email';
+                    fnames[1] = 'FNAME';
+                    ftypes[1] = 'text';
+                    fnames[2] = 'LNAME';
+                    ftypes[2] = 'text';
+                    fnames[3] = 'ADDRESS';
+                    ftypes[3] = 'address';
+                    fnames[4] = 'PHONE';
+                    ftypes[4] = 'phone';
+                    fnames[5] = 'BIRTHDAY';
+                    ftypes[5] = 'birthday';
+                    fnames[6] = 'MMERGE6';
+                    ftypes[6] = 'text';
+                }(jQuery));
+                var $mcj = jQuery.noConflict(true);
+                </script>
+                <!--End mc_embed_signup-->
+
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <section class="InnerHeaderBg" style="background-image: url({{ url_for('static', filename='images/imgs/consulting-header.jpg') }}); min-height:461px;">
+        <div class="ResImg">
+            <img src="{{ url_for('static', filename='images/imgs/consulting-header.jpg') }}" alt="">
+        </div>
+        <div class="Wrapper">
+            <div class="MainWrapper">
+                <h2 class="Title fz90 bits-r">
+                    Development
+                </h2>
+            </div>
+        </div>
+    </section>
+
+    <section class="Section_Second one">
+        <div class="InnerContainWrapper">
+        </div>
+    </section>
+
+    <section class="Section_Second second consulting-page">
+        <div class="InnerContainWrapper">
+            <div class="ClearBoth group MarginWrapper">
+                <div class="ImgWrapper">
+                    <img src="{{ url_for('static', filename='images/imgs/consulting-about-img.jpg') }}">
+                </div>
+                <div class="DescWrapper">
+                    <h3 class="Title fz50 bits-r">
+                        More than security professionals
+                    </h3>
+                    <!-- <hr class="sepline"> -->
+                    <div class="Desc FParagraph1">
+                        <p>Writing code has been a personal hobby and passion of many Practical Security Services employees
+                            since childhood. Throughout their lives and careers, the ability to read and write code has
+                            been a stepping stone to becoming a more efficient and effective community contributor and
+                            security consultant. As professionals, Practical Security Services continues a lifelong love
+                            of code by conducting research in modern development frameworks, managing and maintaining open
+                            source software projects, and building the proprietary software on which the company runs.
+                            Experience as security consultants and software developers uniquely qualifies Practical Security
+                            Services to contribute to development projects where elements of both are desired. Please
+                            contact us for development support.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

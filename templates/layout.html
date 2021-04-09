@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>PractiSec</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <style>html{visibility: hidden; opacity: 0;}</style><!-- FOUC fix 1/2 -->
+    <link href="{{ url_for('static', filename='css/flexslider.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='css/fonts.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='css/default_style.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='css/common_form.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='css/common-layout.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='css/wp-menu_style.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+    <!-- <link href="{{ url_for('static', filename='css/magnific-popup.css') }}" rel="stylesheet" type="text/css" > -->
+    <link href="{{ url_for('static', filename='css/custom.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='css/overlay.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='css/responsive.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='css/practisec.css') }}" rel="stylesheet" type="text/css">
+</head>
+
+<body class="ie8">
+    <a id="top"></a>
+
+{% include "head.html" %}
+
+{% block content %}{% endblock %}
+
+{% include "footer.html" %}
+
+    <script type="text/javascript">
+    jQuery(document).ready(function() {
+        jQuery(".WindowHeight").height(jQuery(window).height());
+        jQuery(window).resize(function() {
+            jQuery(".WindowHeight").height(jQuery(window).height());
+        });
+    });
+    </script>
+
+    <script defer src="{{ url_for('static', filename='js/jquery.flexslider.js') }}"></script>
+    <script type="text/javascript">
+    $(window).load(function() {
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            $('#HomeSlider').flexslider({
+                animation: "slide",
+                direction: "horizontal",
+                animationSpeed: 2000,
+                slideshowSpeed: 5000,
+                smoothHeight: true,
+                controlNav: true,
+                directionNav: false
+            });
+        } else {
+            $('#HomeSlider').flexslider({
+                animation: "fade",
+                direction: "horizontal",
+                animationSpeed: 2000,
+                slideshowSpeed: 5000,
+                smoothHeight: true,
+                controlNav: true,
+                directionNav: false
+            });
+        }
+
+    });
+    </script>
+
+    <script type="text/javascript">
+    $(window).load(function() {
+
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            $('#testimonial-slider').flexslider({
+                animation: "slide",
+                direction: "horizontal",
+                animationSpeed: 2000,
+                slideshowSpeed: 5000,
+                smoothHeight: true,
+                controlNav: true,
+                directionNav: false
+            });
+        } else {
+            $('#testimonial-slider').flexslider({
+                animation: "fade",
+                direction: "horizontal",
+                animationSpeed: 2000,
+                slideshowSpeed: 5000,
+                smoothHeight: true,
+                controlNav: true,
+                directionNav: false
+            });
+        }
+
+    });
+    </script>
+
+    <script type="text/javascript">
+    $(window).load(function() {
+
+        //$('.DownloadColHeight').balance() ;
+
+    }); // $(document).ready 
+    </script>
+
+    <style>html{visibility: visible; opacity: 1;}</style><!-- FOUC fix 2/2 -->
+
+</body>
+
+</html>

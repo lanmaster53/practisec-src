@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <section class="InnerHeaderBg" style="background-image: url({{ url_for('static', filename='images/imgs/consulting-header.jpg') }}); min-height:461px;">
+        <div class="ResImg">
+            <img src="{{ url_for('static', filename='images/imgs/consulting-header.jpg') }}" alt="">
+        </div>
+        <div class="Wrapper">
+            <div class="MainWrapper">
+                <h2 class="Title fz90 bits-r">
+                    Upcoming Events
+                </h2>
+            </div>
+        </div>
+    </section>
+
+    <section class="Section_Second one">
+        <div class="InnerContainWrapper">
+        </div>
+    </section>
+
+    <section class="Section_Second CardWrap Practisec">
+        <div class="InnerContainWrapper">
+        {% for event in site.events %}
+            <article>
+                <div class="CardTitle">
+                    {{ event.summary }}
+                </div>
+                <div>
+                    <span style="font-family: var(--monts-b);">Start Date:</span> {{ event.start }}
+                </div>
+                <div>
+                    <span style="font-family: var(--monts-b);">Duration:</span> {{ event.duration }} days
+                </div>
+                <div>
+                    <span style="font-family: var(--monts-b);">Location:</span> {{ event.location }}
+                </div>
+                <div>
+                    <span style="font-family: var(--monts-b);">Description:</span>
+                <div>
+                    {{ event.description|safe }}
+                </div>
+                {% if event.button_id %}
+                <div class="linebtn">
+                    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id={{ event.button_id }}">Register</a>
+                </div>
+                {% endif %}
+            </article>
+        {% endfor %}
+        {% if site.events|length>3 %}
+        {% for i in range(0,3-(site.events|length%3)) %}
+            <article class="dummy"></article>
+        {% endfor %}
+        {% endif %}
+        </div>
+    </section>
+
+{% endblock %}
