@@ -17,14 +17,14 @@ def get_google_calendar_events():
     for event in cal.walk('vevent'):
         start = event.get('dtstart').dt
         if start > datetime.now().date():
-            end = event.get('dtend').dt - timedelta(days=1)
+            end = event.get('dtend').dt# - timedelta(days=1)
             raw_description = event.get('description')
             description = raw_description
-            button_id = None
+            button_url = None
             # if the last line is a URL, then a button URL was provided for registration
             if raw_description and raw_description.strip().split(os.linesep)[-1].startswith('http'):
                 description = raw_description.strip().rsplit(os.linesep, 1)[0].strip()
-                button_id = raw_description.strip().rsplit(os.linesep, 1)[-1].strip()
+                button_url = raw_description.strip().rsplit(os.linesep, 1)[-1].strip()
             events.append(dict(
                 summary = event.get('summary'),
                 start = start.strftime('%b %d, %Y'),
@@ -32,7 +32,7 @@ def get_google_calendar_events():
                 duration = (end-start).days,
                 location = event.get('location'),
                 description = description,
-                button_id = button_id,
+                button_url = button_url,
             ))
     return events
 

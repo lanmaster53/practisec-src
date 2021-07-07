@@ -40,9 +40,9 @@
                 <div>
                     {{ event.description|safe }}
                 </div>
-                {% if event.button_id %}
+                {% if event.button_url %}
                 <div class="linebtn">
-                    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id={{ event.button_id }}">Register</a>
+                    <a href="{{ event.button_url }}" target="_blank">Register</a>
                 </div>
                 {% endif %}
             </article>
