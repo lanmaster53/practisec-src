@@ -72,8 +72,7 @@ SITE = {
         'about',
     ],
     'freeze': [
-        'cef',
-        'drafts',
+        'register',
     ],
     'testimonials': [e.strip().split(' - ') for e in open('emails.txt').read().strip().split(os.linesep)],
     'events': get_google_calendar_events(),
@@ -124,6 +123,13 @@ app.jinja_env.globals['date'] = datetime.now()
 def error_handlers():
     print('Freezing error handlers...')
     yield "/404.html"
+
+# create pages not linked with url_for
+@freezer.register_generator
+def page():
+    print('Freezing unlinked pages...')
+    for p in app.config['SITE']['freeze']:
+        yield {'name': p}
 
 ##### controllers
 

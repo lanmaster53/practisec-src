@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <section class="InnerHeaderBg" style="background-image: url({{ url_for('static', filename='images/imgs/consulting-header.jpg') }}); min-height:461px;">
+        <div class="ResImg">
+            <img src="{{ url_for('static', filename='images/imgs/consulting-header.jpg') }}" alt="">
+        </div>
+        <div class="Wrapper">
+            <div class="MainWrapper">
+                <h2 class="Title fz90 bits-r">
+                    Thank you!
+                </h2>
+            </div>
+        </div>
+    </section>
+
+    <section class="Section_Second one">
+        <div class="InnerContainWrapper">
+            <h2 class="Title">
+                Thank you for registering, but wait!
+            </h2>
+            <h3 style="text-align: center;">
+                To complete the registration process, please fill out the <a href="https://forms.gle/oSCmMPGZmdCyL12j7">enrollment form</a>.
+            </h3>
+        </div>
+    </section>
+
+{% endblock %}
