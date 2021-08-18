@@ -21,7 +21,7 @@
 
     <section class="Section_Second CardWrap Practisec">
         <div class="InnerContainWrapper">
-        {% for event in site.events %}
+        {% for event in site.events|sort(attribute='start', reverse=True) %}
             <article>
                 <div class="CardTitle">
                     {{ event.summary }}
